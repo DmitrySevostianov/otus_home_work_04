@@ -54,6 +54,9 @@ def get_request_uri_from_environ(environ):
     #print(route)
     return request_URI#route
 
+def get_path_info_from_environ(environ):
+    path_info = environ['PATH_INFO']
+    return path_info
 
 def define_response(page_route_adress):
     
@@ -83,7 +86,7 @@ def define_response(page_route_adress):
 def application(environ, start_response):
     #print('===============================\n RAW_environ :\n',environ)
     #print(environ)
-    page_route_adress = get_request_uri_from_environ(environ)
+    page_route_adress = get_path_info_from_environ(environ)
     ###################
 ###############################
     method = get_method_from_environ(environ)
