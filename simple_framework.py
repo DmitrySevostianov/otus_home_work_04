@@ -26,11 +26,11 @@ def view_on_route_adress(route_adress, response_page_name):
 
 
 def define_response_decorator(route_adress): ##function_to_decorate
-    print('route_adress' , route_adress)
+    
     def decorator(function_to_decorate):
         print('function_to_decorate is: ', function_to_decorate)
         response_page_name = function_to_decorate() 
-        print('RASPONSE \n' , response_page_name)
+        
         _page_adress_template_dict[route_adress] = response_page_name    	
         return response_page_name
 
@@ -39,16 +39,12 @@ def define_response_decorator(route_adress): ##function_to_decorate
 
 def get_method_from_environ(environ):
     request_method = environ['REQUEST_METHOD']
-    print('REQUEST_METHOD: ',request_method,"\n")
-
     return request_method
 
 
 
 def get_request_uri_from_environ(environ):
     request_URI = environ['REQUEST_URI']
-    print('REQUEST_URI: ',request_URI,"\n")
-
     #route = escape(request_URI)#  ???!
 
     #print(route)
